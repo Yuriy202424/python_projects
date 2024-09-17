@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Введите информацию</title>
+</head>
+<body>
+
+    <h1>Введите вашу информацию</h1>
+    
+    <form action="/letters" method="post">
+        <input type="hidden" name="fav_word" value="{{ fav_word }}">
+        
+        <label for="gmail">Введите ваш Gmail:</label>
+        <input type="email" name="gmail" id="gmail" required>
+        <br><br>
+
+        <label for="age">Введите ваш возраст:</label>
+        <input type="number" name="age" id="age" required>
+        <br><br>
+
+        <label for="name">Введите ваше имя:</label>
+        <input type="text" name="name" id="name" required>
+        <br><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+</body>
+</html>
